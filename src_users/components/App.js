@@ -21,22 +21,14 @@ export class App extends React.Component {
         <ProgressBar active now={100}/>
       );
     }
-
+    console.clear();
+    console.log(users,children);
     // render
     return (
       <div className="container">
-        <div>
-          <Menu/>
-        </div>
+        <h3>Departing Australia superannuation payments: new applications</h3>
         <div>
           {children}
-        </div>
-        <div className="footer">
-          <img src="/media/logo.svg"/>
-          <span>
-            Simple users app built with {' '}
-            <a href="http://redux-minimal.js.org/" target="_blank">redux-minimal</a>
-          </span>
         </div>
       </div>
     );

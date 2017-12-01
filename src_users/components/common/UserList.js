@@ -39,11 +39,8 @@ export class UserList extends React.Component {
         <Table bordered hover responsive striped>
           <thead>
           <tr>
-            <th>ID</th>
-            <th>Username</th>
-            <th>Job</th>
-            <th>Edit</th>
-            <th>Delete</th>
+            <th>Submitted</th>
+            <th>Applicant name</th>
           </tr>
           </thead>
           <tbody>
@@ -58,7 +55,7 @@ export class UserList extends React.Component {
           </tbody>
         </Table>
 
-        <Pagination className="users-pagination pull-right" bsSize="medium" maxButtons={10} first last next
+        <Pagination className="users-pagination" bsSize="medium" maxButtons={10} first last next
           prev boundaryLinks items={pages} activePage={page} onSelect={this.changePage}/>
 
         <UserDeletePrompt show={this.state.delete_show} user={this.state.delete_user}

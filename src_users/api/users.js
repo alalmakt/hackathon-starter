@@ -6,13 +6,23 @@ export default class ApiUsers {
       setTimeout(() => {
         // build some dummy users list
         let users = [];
-        for (let x = 1; x <= 28; x++) {
-          users.push({
-            id: x,
-            username: 'Johny ' + x,
-            job: 'Employee ' + x,
-          });
-        }
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
+        users.push({id:"1",submitted:'23-12-2011',applicantName:'Banni'});
         resolve(users);
       }, 1000);
     });

@@ -9,21 +9,8 @@ export default class UserListElement extends React.Component {
     const {user, showDelete} = this.props;
     return (
       <tr>
-        <td>#{user.id}</td>
-        <td>{user.username}</td>
-        <td>{user.job}</td>
-        <td>
-          <Link to={'user-edit/' + user.id}>
-            <Button bsSize="xsmall">
-              Edit <Glyphicon glyph="edit"/>
-            </Button>
-          </Link>
-        </td>
-        <td>
-          <Button bsSize="xsmall" className="user-delete" onClick={() => showDelete(user)}>
-            Delete <Glyphicon glyph="remove-circle"/>
-          </Button>
-        </td>
+      <Link to={"user-view/"+user.id}><td>{user.submitted}</td></Link>
+        <td>{user.applicantName}</td>
       </tr>
     );
   }
