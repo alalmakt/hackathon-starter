@@ -36,6 +36,101 @@ th {
 }
 
 
+.progress {
+  margin: 10px auto;
+  width: 300px;
+}
+
+.nav {
+  margin: 30px 0 20px 0;
+}
+
+.footer {
+  clear: both;
+  margin-bottom: 50px;
+  text-align: center;
+
+  img {
+    width: 40px;
+    padding-right: 5px;
+  }
+
+  span {
+    vertical-align: middle;
+  }
+}
+
+.users-pagination {
+  margin-top: 0;
+}
+
+.page-user-edit form {
+  width: 500px;
+  margin-top: 40px;
+}
+
+th {
+  background-image: url('/media/pattern.jpg');
+}
+
+
+.page-home{
+
+  margin: 30px;
+  -width: 450px;
+}
+.page-home label span{
+
+  display: inline-block;
+  width: 200px;
+}
+
+.page-home input,
+.page-home input.k-textbox{
+  border: 1px solid #b3b3b3;
+  padding: 8px;
+  border-radius: 4px;
+  width: 400px;
+}
+
+div.header{
+
+  border-top: 30px solid #002341;
+  width: 100%;
+  height: 130px;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+div.logo{
+
+  background-image: url("/logo-ato.png");
+  height: 60px;
+  width: 248px;
+
+  }
+
+
+  h1.myheader{
+    color: #0E8387  !important;
+    font-size: 2em;
+    border-bottom: 1px solid black;
+    margin-bottom: 40px;
+  }
+
+  button{
+    background-color: #0E8387;
+    border-radius: 2px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 13px;
+    padding-bottom: 11px;
+    color: #fff;
+    border: 0;
+    margin-top: 30px;
+    float: right;
+
+  }
 
 
 

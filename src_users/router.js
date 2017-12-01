@@ -6,6 +6,7 @@ import Home from "./components/Home";
 import UserEdit from "./components/UserEdit";
 import UserView from "./components/UserView"
 import NotFound from "./components/NotFound";
+import ApplicationList from "./components/ApplicationList";
 
 // build the router
 const router = (
@@ -14,6 +15,8 @@ const router = (
       <IndexRoute component={Home}/>
       <Route path="user-edit(/:id)" component={UserEdit}/>
       <Route path="user-view(/:user)" component={UserView}/>
+      <Route path="application-list" component={ApplicationList}/>
+
       <Route path="*" component={NotFound}/>
     </Route>
   </Router>
