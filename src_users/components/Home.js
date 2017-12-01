@@ -52,7 +52,7 @@ export default class Home extends React.Component {
 
     return (
       <div className="page-home">
-        <h1 className="myheader">Hello world!</h1>
+        <h1 className="myheader">Please provide required details.</h1>
         <form>
           <div>
             <div class="form-group">
