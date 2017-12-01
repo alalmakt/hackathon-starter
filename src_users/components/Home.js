@@ -31,18 +31,23 @@ export default class Home extends React.Component {
   render() {
     var options = {
       filter: "startswith",
-      dataTextField: "ProductName",
-      dataValueField: "ProductID",
-      dataSource: {
-        type: "odata",
-        serverFiltering: true,
-        transport: {
-          read: {
-            url:
-              "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
-          }
-        }
-      }
+      dataTextField: "countryName",
+      dataValueField: "countryValue",
+      // dataSource: {
+      //   type: "odata",
+      //   serverFiltering: true,
+      //   transport: {
+      //     read: {
+      //       url:
+      //         "https://demos.telerik.com/kendo-ui/service/Northwind.svc/Products"
+      //     }
+      //   }
+      // }
+      dataSource: [
+        { countryName: "China", countryValue: "CHN" },
+        { countryName: "Hong Kong", countryValue: "HKN" }
+      ]
+    
     };
 
     return (
