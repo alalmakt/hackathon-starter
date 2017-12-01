@@ -44,8 +44,26 @@ export default class Home extends React.Component {
       //   }
       // }
       dataSource: [
+        { countryName: "Australia", countryValue: "AUS" },
+        { countryName: "Brazil", countryValue: "BRA" },
+        { countryName: "Canada", countryValue: "CAN" },
         { countryName: "China", countryValue: "CHN" },
-        { countryName: "Hong Kong", countryValue: "HKN" }
+        { countryName: "France", countryValue: "FRA" },
+        { countryName: "Germany", countryValue: "DEU" },
+        { countryName: "Hong Kong", countryValue: "HKG" },
+        { countryName: "India", countryValue: "IND" },
+        { countryName: "Indonesia", countryValue: "IDN" },
+        { countryName: "Italy", countryValue: "ITA" },
+        { countryName: "Japan", countryValue: "JPN" },
+        { countryName: "Malaysia", countryValue: "MYS" },
+        { countryName: "New Zealand", countryValue: "NZL" },
+        { countryName: "Philippines", countryValue: "PHL" },
+        { countryName: "Singapore", countryValue: "SGP" },
+        { countryName: "South Korea", countryValue: "KOR" },
+        { countryName: "Thailand", countryValue: "THA" },
+        { countryName: "United Kingdom", countryValue: "GBR" },
+        { countryName: "United States of America", countryValue: "USA" },
+        { countryName: "Vietnam", countryValue: "VNM" }
       ]
     
     };
