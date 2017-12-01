@@ -47,48 +47,45 @@ export default class Home extends React.Component {
 
     return (
       <div className="page-home">
-        <h4>Hello world!</h4>
+        <h1 className="myheader">Hello world!</h1>
         <form>
-          <div className="row">
-            <div className="col-sm-6">
-              <div class="form-group">
-                <label>
-                  Family name
-                  <input type="text" placeholder="Family name" />
-                </label>
-              </div>
-              <div class="form-group">
-                <label>
-                  Given name
-                  <input type="text" placeholder="Given name" />
-                </label>
-              </div>
-              <div class="form-group">
-                <label>
-                  Date of birth
-                  <MaskedTextBox
-                    id="exampleInputEmail1"
-                    value={this.state.value}
-                    mask={"00-00-0000"}
-                    change={this.onChange}
-                  />
-                </label>
-              </div>
-              <div class="form-group">
-                <label>Passport country</label>
-                <DropDownList {...options} />
-              </div>
-              <div class="form-group">
-                <label>
-                  Passport number
-                  <input type="text" placeholder="Passport number" />
-                </label>
-              </div>
-              <Button>Submit</Button>
-              <Button enable={false} icon="cancel">
-                Disabled Button
-              </Button>
+          <div>
+            <div class="form-group">
+              <label>
+                <span>Family name</span>
+                <input type="text" placeholder="Family name" />
+              </label>
             </div>
+            <div class="form-group">
+              <label>
+                <span>Given name</span>
+                <input type="text" placeholder="Given name" />
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Date of birth</span>
+                <MaskedTextBox
+                  id="exampleInputEmail1"
+                  value={this.state.value}
+                  mask={"00-00-0000"}
+                  change={this.onChange}
+                />
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Passport country</span>
+              </label>
+              <DropDownList {...options} />
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Passport number</span>
+                <input type="text" placeholder="Passport number" />
+              </label>
+            </div>
+           <button>Submit</button>
           </div>
         </form>
       </div>
