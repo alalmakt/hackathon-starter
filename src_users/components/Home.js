@@ -10,7 +10,7 @@ import {
   KendoDropdownsReactWrapper,
   DropDownList
 } from "@progress/kendo-dropdowns-react-wrapper";
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
 // Home page component
 export class Home extends React.Component {
@@ -22,6 +22,8 @@ export class Home extends React.Component {
     this.onChange = this.onChange.bind(this);
 
     this.formSubmit = this.formSubmit.bind(this);
+    this.formVerify = this.formVerify.bind(this);
+
   }
 
   onChange(e) {
@@ -32,16 +34,19 @@ export class Home extends React.Component {
     });
   }
 
-  formSubmit(values) {
+  formVerify(values) {
     this.props.dispatch({
-      type: 'USERS_VERIFY'
+      type: "USERS_VERIFY"
     });
   }
 
-
+  formSubmit(values) {
+    this.props.dispatch({
+      type: "APPLICATION_SUBMIT"
+    });
+  }
 
   render() {
-
     var options = {
       filter: "startswith",
       dataTextField: "countryName",
@@ -80,72 +85,104 @@ export class Home extends React.Component {
       ]
     };
 
+    if (this.props.applications.isVerified) {
+      var section = (
+        <div>
+          <div className="form-group">
+            <label>
+              <span>Family name</span>
+              <input type="text" placeholder="Family name" />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <span>Family name</span>
+              <input type="text" placeholder="Family name" />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <span>Family name</span>
+              <input type="text" placeholder="Family name" />
+            </label>
+          </div>
+          <button onClick={this.formSubmit}>Submit</button>
+        </div>
+      );
+    }
     return (
       <div className="page-home">
         <h1 className="myheader">Please provide required details.</h1>
-          <div>
-            <div class="form-group">
-              <label>
-                <span>Family name</span>
-                <input type="text" placeholder="Family name" />
-              </label>
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Given name</span>
-                <input type="text" placeholder="Given name" />
-              </label>
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Date of birth</span>
-                <MaskedTextBox
-                  id="exampleInputEmail1"
-                  value={this.state.value}
-                  mask={"00-00-0000"}
-                  change={this.onChange}
-                />
-              </label>
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Passport country</span>
-              </label>
-              <DropDownList {...options} />
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Passport number</span>
-                <input type="text" placeholder="Passport number" />
-              </label>
-            </div>
-           <button>Submit</button>
-          </div>
-          <div className="form-group">
-            <label>
-              <span>Date of birth</span>
-              <MaskedTextBox
-                id="dateOfBirth"
-                name="dateOfBirth"
-                value={this.state.value}
-                mask={"00-00-0000"}
-                change={this.onChange}
-              />
-            </label>
-          </div>
-          <div className="form-group">
-            <label>
-              <span>Passport country</span>
-            </label>
-            <DropDownList name="country" {...options} />
-          </div>
-          <div className="form-group">
-            <label>
-              <span>Passport number</span>
-              <input name="passportNumber" type="text" placeholder="Passport number" />
-            </label>
-          </div>
-          <button type="button" onClick={this.formSubmit}>Verify</button>
+
+        <div className="form-group">
+          <label>
+            <span>Family name</span>
+            <input type="text" placeholder="Family name" />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <span>Given name</span>
+            <input type="text" placeholder="Given name" />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <span>Date of birth</span>
+            <MaskedTextBox
+              id="exampleInputEmail1"
+              value={this.state.value}
+              mask={"00-00-0000"}
+              change={this.onChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <span>Passport country</span>
+          </label>
+          <DropDownList {...options} />
+        </div>
+        <div className="form-group">
+          <label>
+            <span>Passport number</span>
+            <input type="text" placeholder="Passport number" />
+          </label>
+        </div>
+
+        <div className="form-group">
+          <label>
+            <span>Date of birth</span>
+            <MaskedTextBox
+              id="dateOfBirth"
+              name="dateOfBirth"
+              value={this.state.value}
+              mask={"00-00-0000"}
+              change={this.onChange}
+            />
+          </label>
+        </div>
+        <div className="form-group">
+          <label>
+            <span>Passport country</span>
+          </label>
+          <DropDownList name="country" {...options} />
+        </div>
+        <div className="form-group">
+          <label>
+            <span>Passport number</span>
+            <input
+              name="passportNumber"
+              type="text"
+              placeholder="Passport number"
+            />
+          </label>
+        </div>
+        <button type="button" onClick={this.formVerify}>
+          Verify
+        </button>
+
+        {section}
       </div>
     );
   }
@@ -154,12 +191,16 @@ export class Home extends React.Component {
 const mapDispatchToProps = dispatch => {
   return {
     dispatch: dispatch
-  }
+  };
+};
+
+// export the connected class
+function mapStateToProps(state) {
+  return {
+    applications: state.applications
+  };
 }
 
-const VisibleTodoList = connect(
-  mapDispatchToProps
-)(Home)
+const VisibleTodoList = connect(mapStateToProps, mapDispatchToProps)(Home);
 
-
-export default VisibleTodoList
+export default VisibleTodoList;

@@ -19,4 +19,5 @@ export const reducers = combineReducers({
     }
   }),
   users: users,
+  applications: applications
 });

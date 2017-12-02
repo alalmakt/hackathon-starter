@@ -1,6 +1,6 @@
 import { call, put } from "redux-saga/effects";
 import ApiUsers from "../api/users";
-import { push } from 'react-router-redux';
+import { push } from "react-router-redux";
 // fetch the user's list
 export function* usersFetchList(action) {
   // call the api to get the users list
@@ -42,12 +42,19 @@ export function* usersDelete(action) {
 }
 
 export function* userVerify(action) {
-  debugger;
   yield call(ApiUsers.verify);
 
   yield put({
-    type: "USER_VERIFY_SUCCESS",
+    type: "USER_VERIFY_SUCCESS"
+  });
+}
+
+export function* applicationSubmit(action) {
+  yield call(ApiUsers.submit);
+
+  yield put({
+    type: "APPLICATION_SUBMIT_SUCCESS"
   });
 
-  yield put(push('/agent-application-list'));
+  yield put(push("/agent-application-list"));
 }

@@ -1,12 +1,16 @@
 // users reducer
 export default function applications(state = {}, action) {
   switch (action.type) {
-    case "USERS_VERIFY_SUCCESS":
-      return state;
+    case "USER_VERIFY_SUCCESS":
+      return {
+        isVerified: true
+      };
       break;
 
     // initial state
     default:
-      return state;
+      return {
+        isVerified: false
+      };
   }
 }
