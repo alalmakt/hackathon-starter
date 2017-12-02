@@ -23,7 +23,6 @@ export class Home extends React.Component {
 
     this.formSubmit = this.formSubmit.bind(this);
     this.formVerify = this.formVerify.bind(this);
-
   }
 
   onChange(e) {
@@ -90,14 +89,14 @@ export class Home extends React.Component {
         <div>
           <div className="form-group">
             <label>
-              <span>Family name</span>
-              <input type="text" placeholder="Family name" />
+              <span>Application name</span>
+              <input type="text" placeholder="Application name" />
             </label>
           </div>
           <div className="form-group">
             <label>
-              <span>Family name</span>
-              <input type="text" placeholder="Family name" />
+              <span>Application Type</span>
+              <input type="text" placeholder="Application Type" />
             </label>
           </div>
           <div className="form-group">
@@ -113,75 +112,77 @@ export class Home extends React.Component {
     return (
       <div className="page-home">
         <h1 className="myheader">Please provide required details.</h1>
+        <div className="row">
+          <div className="col-xs-12">
+            <div className="form-group">
+              <label>
+                <span>Family name</span>
+                <input type="text" placeholder="Family name" />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <span>Given name</span>
+                <input type="text" placeholder="Given name" />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <span>Date of birth</span>
+                <MaskedTextBox
+                  id="exampleInputEmail1"
+                  value={this.state.value}
+                  mask={"00-00-0000"}
+                  change={this.onChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <span>Passport country</span>
+              </label>
+              <DropDownList {...options} />
+            </div>
+            <div className="form-group">
+              <label>
+                <span>Passport number</span>
+                <input type="text" placeholder="Passport number" />
+              </label>
+            </div>
 
-        <div className="form-group">
-          <label>
-            <span>Family name</span>
-            <input type="text" placeholder="Family name" />
-          </label>
+            <div className="form-group">
+              <label>
+                <span>Date of birth</span>
+                <MaskedTextBox
+                  id="dateOfBirth"
+                  name="dateOfBirth"
+                  value={this.state.value}
+                  mask={"00-00-0000"}
+                  change={this.onChange}
+                />
+              </label>
+            </div>
+            <div className="form-group">
+              <label>
+                <span>Passport country</span>
+              </label>
+              <DropDownList name="country" {...options} />
+            </div>
+            <div className="form-group">
+              <label>
+                <span>Passport number</span>
+                <input
+                  name="passportNumber"
+                  type="text"
+                  placeholder="Passport number"
+                />
+              </label>
+            </div>
+            <button type="button" onClick={this.formVerify}>
+              Verify
+            </button>
+          </div>
         </div>
-        <div className="form-group">
-          <label>
-            <span>Given name</span>
-            <input type="text" placeholder="Given name" />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            <span>Date of birth</span>
-            <MaskedTextBox
-              id="exampleInputEmail1"
-              value={this.state.value}
-              mask={"00-00-0000"}
-              change={this.onChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            <span>Passport country</span>
-          </label>
-          <DropDownList {...options} />
-        </div>
-        <div className="form-group">
-          <label>
-            <span>Passport number</span>
-            <input type="text" placeholder="Passport number" />
-          </label>
-        </div>
-
-        <div className="form-group">
-          <label>
-            <span>Date of birth</span>
-            <MaskedTextBox
-              id="dateOfBirth"
-              name="dateOfBirth"
-              value={this.state.value}
-              mask={"00-00-0000"}
-              change={this.onChange}
-            />
-          </label>
-        </div>
-        <div className="form-group">
-          <label>
-            <span>Passport country</span>
-          </label>
-          <DropDownList name="country" {...options} />
-        </div>
-        <div className="form-group">
-          <label>
-            <span>Passport number</span>
-            <input
-              name="passportNumber"
-              type="text"
-              placeholder="Passport number"
-            />
-          </label>
-        </div>
-        <button type="button" onClick={this.formVerify}>
-          Verify
-        </button>
-
         {section}
       </div>
     );
