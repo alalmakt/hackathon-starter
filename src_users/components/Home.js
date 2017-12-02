@@ -57,25 +57,69 @@ export class Home extends React.Component {
       //   }
       // }
       dataSource: [
+        { countryName: "Australia", countryValue: "AUS" },
+        { countryName: "Brazil", countryValue: "BRA" },
+        { countryName: "Canada", countryValue: "CAN" },
         { countryName: "China", countryValue: "CHN" },
-        { countryName: "Hong Kong", countryValue: "HKN" }
+        { countryName: "France", countryValue: "FRA" },
+        { countryName: "Germany", countryValue: "DEU" },
+        { countryName: "Hong Kong", countryValue: "HKG" },
+        { countryName: "India", countryValue: "IND" },
+        { countryName: "Indonesia", countryValue: "IDN" },
+        { countryName: "Italy", countryValue: "ITA" },
+        { countryName: "Japan", countryValue: "JPN" },
+        { countryName: "Malaysia", countryValue: "MYS" },
+        { countryName: "New Zealand", countryValue: "NZL" },
+        { countryName: "Philippines", countryValue: "PHL" },
+        { countryName: "Singapore", countryValue: "SGP" },
+        { countryName: "South Korea", countryValue: "KOR" },
+        { countryName: "Thailand", countryValue: "THA" },
+        { countryName: "United Kingdom", countryValue: "GBR" },
+        { countryName: "United States of America", countryValue: "USA" },
+        { countryName: "Vietnam", countryValue: "VNM" }
       ]
     };
 
     return (
       <div className="page-home">
-        <h1 className="myheader">Hello world!</h1>
-          <div className="form-group">
-            <label>
-              <span>Family name</span>
-              <input type="text" id="familyName" name="familyName" placeholder="Family name" />
-            </label>
-          </div>
-          <div className="form-group">
-            <label>
-              <span>Given name</span>
-              <input type="text" id="givenName" name="givenName" placeholder="Given name" />
-            </label>
+        <h1 className="myheader">Please provide required details.</h1>
+          <div>
+            <div class="form-group">
+              <label>
+                <span>Family name</span>
+                <input type="text" placeholder="Family name" />
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Given name</span>
+                <input type="text" placeholder="Given name" />
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Date of birth</span>
+                <MaskedTextBox
+                  id="exampleInputEmail1"
+                  value={this.state.value}
+                  mask={"00-00-0000"}
+                  change={this.onChange}
+                />
+              </label>
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Passport country</span>
+              </label>
+              <DropDownList {...options} />
+            </div>
+            <div class="form-group">
+              <label>
+                <span>Passport number</span>
+                <input type="text" placeholder="Passport number" />
+              </label>
+            </div>
+           <button>Submit</button>
           </div>
           <div className="form-group">
             <label>

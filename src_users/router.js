@@ -8,6 +8,7 @@ import UserView from "./components/UserView";
 import NotFound from "./components/NotFound";
 import ApplicationList from "./components/ApplicationList";
 import AgentApplicationList from "./components/AgentApplicationList"
+import Receipt from "./components/Receipt";
 
 // build the router
 const router = (
@@ -19,6 +20,7 @@ const router = (
       <Route path="application-list" component={ApplicationList} />
       <Route path="agent-application-list" component={AgentApplicationList} />
       <Route path="*" component={NotFound} />
+      <Route path="receipt" component={Receipt}/>
     </Route>
   </Router>
 );
