@@ -4,12 +4,13 @@ import { connect } from "react-redux";
 export class ApplicationList extends React.Component {
   // render
   render() {
-  	console.clear();
-  	console.log(this.props);
+
+
+
     return (
-      <div className="page-not-found">
-        <h4>Pasdfdsfdsund</h4>
-      </div>
+
+        <h1>Pasdfdsfdsund</h1>
+
     );
   }
 }
