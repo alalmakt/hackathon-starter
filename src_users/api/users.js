@@ -47,4 +47,14 @@ export default class ApiUsers {
       }, 500);
     });
   }
+
+    // verify a user
+    static verify() {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          // do something here
+          resolve();
+        }, 500);
+      });
+    }
 }

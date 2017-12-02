@@ -1,15 +1,15 @@
 import { call, put } from "redux-saga/effects";
 import ApiUsers from "../api/users";
-
+import { push } from 'react-router-redux';
 // fetch the user's list
 export function* usersFetchList(action) {
   // call the api to get the users list
   const users = yield call(ApiUsers.getList);
-
+  usersFetchList;
   // save the users in state
   yield put({
-    type: 'USERS_LIST_SAVE',
-    users: users,
+    type: "USERS_LIST_SAVE",
+    users: users
   });
 }
 
@@ -21,8 +21,8 @@ export function* usersAddEdit(action) {
 
   // update the state by adding/editing the user
   yield put({
-    type: action.user.id ? 'USERS_EDIT_SAVE' : 'USERS_ADD_SAVE',
-    user: action.user,
+    type: action.user.id ? "USERS_EDIT_SAVE" : "USERS_ADD_SAVE",
+    user: action.user
   });
 
   // success
@@ -36,7 +36,18 @@ export function* usersDelete(action) {
 
   // update the state by removing the user
   yield put({
-    type: 'USERS_DELETE_SAVE',
-    user_id: action.user_id,
+    type: "USERS_DELETE_SAVE",
+    user_id: action.user_id
   });
+}
+
+export function* userVerify(action) {
+  debugger;
+  yield call(ApiUsers.verify);
+
+  yield put({
+    type: "USER_VERIFY_SUCCESS",
+  });
+
+  yield put(push('/agent-application-list'));
 }

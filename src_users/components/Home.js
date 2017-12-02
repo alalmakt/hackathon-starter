@@ -10,15 +10,18 @@ import {
   KendoDropdownsReactWrapper,
   DropDownList
 } from "@progress/kendo-dropdowns-react-wrapper";
+import { connect } from 'react-redux'
 
 // Home page component
-export default class Home extends React.Component {
+export class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       value: props.value
     };
     this.onChange = this.onChange.bind(this);
+
+    this.formSubmit = this.formSubmit.bind(this);
   }
 
   onChange(e) {
@@ -28,7 +31,17 @@ export default class Home extends React.Component {
       value: e.sender.raw()
     });
   }
+
+  formSubmit(values) {
+    this.props.dispatch({
+      type: 'USERS_VERIFY'
+    });
+  }
+
+
+
   render() {
+
     var options = {
       filter: "startswith",
       dataTextField: "countryName",
@@ -47,53 +60,62 @@ export default class Home extends React.Component {
         { countryName: "China", countryValue: "CHN" },
         { countryName: "Hong Kong", countryValue: "HKN" }
       ]
-    
     };
 
     return (
       <div className="page-home">
         <h1 className="myheader">Hello world!</h1>
-        <form>
-          <div>
-            <div class="form-group">
-              <label>
-                <span>Family name</span>
-                <input type="text" placeholder="Family name" />
-              </label>
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Given name</span>
-                <input type="text" placeholder="Given name" />
-              </label>
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Date of birth</span>
-                <MaskedTextBox
-                  id="exampleInputEmail1"
-                  value={this.state.value}
-                  mask={"00-00-0000"}
-                  change={this.onChange}
-                />
-              </label>
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Passport country</span>
-              </label>
-              <DropDownList {...options} />
-            </div>
-            <div class="form-group">
-              <label>
-                <span>Passport number</span>
-                <input type="text" placeholder="Passport number" />
-              </label>
-            </div>
-           <button>Submit</button>
+          <div className="form-group">
+            <label>
+              <span>Family name</span>
+              <input type="text" id="familyName" name="familyName" placeholder="Family name" />
+            </label>
           </div>
-        </form>
+          <div className="form-group">
+            <label>
+              <span>Given name</span>
+              <input type="text" id="givenName" name="givenName" placeholder="Given name" />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <span>Date of birth</span>
+              <MaskedTextBox
+                id="dateOfBirth"
+                name="dateOfBirth"
+                value={this.state.value}
+                mask={"00-00-0000"}
+                change={this.onChange}
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label>
+              <span>Passport country</span>
+            </label>
+            <DropDownList name="country" {...options} />
+          </div>
+          <div className="form-group">
+            <label>
+              <span>Passport number</span>
+              <input name="passportNumber" type="text" placeholder="Passport number" />
+            </label>
+          </div>
+          <button type="button" onClick={this.formSubmit}>Verify</button>
       </div>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    dispatch: dispatch
+  }
+}
+
+const VisibleTodoList = connect(
+  mapDispatchToProps
+)(Home)
+
+
+export default VisibleTodoList
