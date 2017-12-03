@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { Link } from "react-router";
 import {
   KendoGridReactWrapper,
   Grid
@@ -64,6 +64,9 @@ export class AgentApplicationList extends React.Component {
       <div>
         <h1>Applications</h1>
         <Grid {...gridOptions} />
+        <div>
+          <Link to={"/receipt"}><button>Submit</button></Link>
+          </div>
       </div>
     );
   }

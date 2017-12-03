@@ -19,8 +19,8 @@ const router = (
       <Route path="user-view(/:user)" component={UserView} />
       <Route path="application-list" component={ApplicationList} />
       <Route path="agent-application-list" component={AgentApplicationList} />
-      <Route path="*" component={NotFound} />
       <Route path="receipt" component={Receipt}/>
+      <Route path="*" component={NotFound} />
     </Route>
   </Router>
 );
