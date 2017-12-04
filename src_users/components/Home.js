@@ -141,31 +141,6 @@ export class Home extends React.Component {
               <label>
                 <span>Passport country</span>
               </label>
-              <DropDownList {...options} />
-            </div>
-            <div className="form-group">
-              <label>
-                <span>Passport number</span>
-                <input type="text" placeholder="Passport number" />
-              </label>
-            </div>
-
-            <div className="form-group">
-              <label>
-                <span>Date of birth</span>
-                <MaskedTextBox
-                  id="dateOfBirth"
-                  name="dateOfBirth"
-                  value={this.state.value}
-                  mask={"00-00-0000"}
-                  change={this.onChange}
-                />
-              </label>
-            </div>
-            <div className="form-group">
-              <label>
-                <span>Passport country</span>
-              </label>
               <DropDownList name="country" {...options} />
             </div>
             <div className="form-group">
@@ -178,7 +153,7 @@ export class Home extends React.Component {
                 />
               </label>
             </div>
-            <button type="button" onClick={this.formVerify}>
+            <button type="button" onClick={this.formSubmit}>
               Check Eligibility
             </button>
           </div>
