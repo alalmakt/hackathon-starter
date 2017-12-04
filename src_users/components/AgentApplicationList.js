@@ -5,9 +5,23 @@ import {
   KendoGridReactWrapper,
   Grid
 } from "@progress/kendo-grid-react-wrapper";
+import { ProgressBar } from "react-bootstrap";
 // Not found page component
 export class AgentApplicationList extends React.Component {
   // render
+  constructor(props) {
+    super(props);
+
+    this.formSubmit = this.formSubmit.bind(this);
+
+  }
+
+  formSubmit(values) {
+    this.props.dispatch({
+      type: "COMPLETE_APPLICATION_SUBMIT"
+    });
+  }
+
   render() {
 
     const gridOptions = {
@@ -176,15 +190,22 @@ export class AgentApplicationList extends React.Component {
         { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }
       ],
       toolbar: ["create"]
-      
+
     };
+
+    if (this.props.applications.isLoading) {
+      return (
+        <ProgressBar active now={100}/>
+      );
+    }
+
     return (
       <div>
         <h1>Applications</h1>
         {/* <Grid {...gridOptions} /> */}
         <Grid {...gridOptions1} />
         <div>
-          <Link to={"/receipt"}><button>Submit</button></Link>
+          <button type="button" onClick={this.formSubmit}>Submit</button>
         </div>
       </div>
     );
@@ -193,7 +214,7 @@ export class AgentApplicationList extends React.Component {
 // export the connected class
 function mapStateToProps(state) {
   return {
-    user: state.users
+    applications: state.applications
   };
 }
 

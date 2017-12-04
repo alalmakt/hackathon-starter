@@ -57,4 +57,15 @@ export function* applicationSubmit(action) {
   });
 
   yield put(push("/agent-application-list"));
+
+}
+
+export function* completeApplicationSubmit(action) {
+  yield call(ApiUsers.submit);
+
+  yield put({
+    type: "COMPLETE_APPLICATION_SUBMIT_SUCCESS"
+  });
+
+  yield put(push("/receipt"));
 }

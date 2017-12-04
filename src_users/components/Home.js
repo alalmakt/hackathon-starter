@@ -11,6 +11,7 @@ import {
   DropDownList
 } from "@progress/kendo-dropdowns-react-wrapper";
 import { connect } from "react-redux";
+import { ProgressBar } from "react-bootstrap";
 
 // Home page component
 export class Home extends React.Component {
@@ -83,6 +84,12 @@ export class Home extends React.Component {
         { countryName: "Vietnam", countryValue: "VNM" }
       ]
     };
+
+    if (this.props.applications.isLoading) {
+      return (
+        <ProgressBar active now={100}/>
+      );
+    }
 
     if (this.props.applications.isVerified) {
       var section = (
