@@ -179,7 +179,7 @@ export class Home extends React.Component {
               </label>
             </div>
             <button type="button" onClick={this.formVerify}>
-              Verify
+              Check Eligibility
             </button>
           </div>
         </div>
